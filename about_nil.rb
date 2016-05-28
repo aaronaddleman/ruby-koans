@@ -33,6 +33,8 @@ class AboutNil < Neo::Koan
     # or
     #    obj == nil
     # Why?
+
+    # I suggest using obj.nil? for readablility
   end
 
 end
