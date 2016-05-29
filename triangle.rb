@@ -14,6 +14,15 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  raise TriangleError if a == 0 && b == 0 && c == 0
+  raise TriangleError if [a,b,c].any? { |x| x <= 0 }
+
+  sides = [a,b,c].sort
+
+  unless sides[0]+sides[1] > sides[2]
+    raise TriangleError, "Does not satisfy triangle inequality"
+  end
+
   return :equilateral if a == b && b == c
   return :isosceles if [a, b, c].uniq.length == 2
   return :scalene if [a, b, c].uniq.length == 3
